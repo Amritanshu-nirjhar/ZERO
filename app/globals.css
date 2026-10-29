@@ -3,25 +3,59 @@
 @tailwind utilities;
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --bg: #FAF9F7;
+  --ink: #1E1E1C;
+  --muted: #6B6A66;
+  --line: #E6E4DF;
+  --green: #2F9E4F;
+  --green-deep: #1A2E1C;
+  --mint: #B9F5B0;
+  --yellow: #F2F21A;
 }
 
 body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--bg);
+  color: var(--ink);
 }
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
+::selection {
+  background: var(--mint);
+  color: var(--green-deep);
+}
+
+:focus-visible {
+  outline: 2px solid var(--green);
+  outline-offset: 3px;
+}
+
+.grid-paper {
+  background-color: var(--green-deep);
+  background-image:
+    linear-gradient(rgba(90, 190, 120, 0.13) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(90, 190, 120, 0.13) 1px, transparent 1px);
+  background-size: 46px 46px;
+}
+
+
+@keyframes mote {
+  0% { transform: translate(0, 0); opacity: 0; }
+  15% { opacity: 0.8; }
+  50% { transform: translate(-40px, 60px); opacity: 0.6; }
+  85% { opacity: 0.7; }
+  100% { transform: translate(-90px, 130px); opacity: 0; }
+}
+
+@keyframes leafshade {
+  from { transform: translate(0, 0) rotate(0deg); }
+  to { transform: translate(1.2%, -0.8%) rotate(1.2deg); }
+}
+
+@keyframes sunbeam {
+  from { opacity: 0.45; transform: translateX(-1%); }
+  to { opacity: 1; transform: translateX(1.5%); }
+}
+
+@keyframes eq {
+  from { height: 3px; }
+  to { height: 16px; }
 }
